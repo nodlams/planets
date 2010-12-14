@@ -1,0 +1,14 @@
+Running 1000 bodies for 1000 steps. Timings performed by running the app with "time".
+
+
+Starting point (no SSE) -O3: 17.590s	17.540		17.536
+-msse3 -O3: 		     17.612	17.467		17.451
+-msse3 -O3 -ffast-math:	     17.634	17.729		17.644
+Checked and found the g++ is not vectorizing my loops.
+-msse3 -O3 -ffast-math -march=athlon64-sse3	16.934	16.865	16.762
+-msse -msse2 -msse3 -O3 -ffast-math -march=athlon64-sse3 -mfpmath=sse	16.719	16.655	16.723
+-msse -msse2 -msse3 -O3 -ffast-math -mtune=athlon64-sse3 -march=athlon64-sse3 -mfpmath=sse	16.671	16.611	16.693
+added sse intrinsics to the gravity force calculation code. 47.257
+
+
+
